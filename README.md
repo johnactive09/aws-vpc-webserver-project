@@ -42,7 +42,7 @@ Copy code
 
 ## 📌 Deployment Steps
 
-### 1. Create VPC
+### 1. Create VPC ![VPC](screenshots/vpc.png)
 - CIDR: `10.0.0.0/16`
 - Name: `trainingVPC`
 
