@@ -7,22 +7,19 @@ It covers the essential cloud networking components used in real Cloud Support /
 
 ## 📌 Architecture Diagram
 
-Internet
-|
-[ Internet Gateway ]
-|
-[VPC: 10.0.0.0/16]
-|
-[ Public Subnet: 10.0.1.0/24 ]
-|
-[ EC2 Web Server (Amazon Linux) ]
-- Public IP: 13.57.16.92
-- Security Group:
-- SSH (22) from My IP
-- HTTP (80) from 0.0.0.0/0
-
-markdown
-Copy code
+Internet  
+   |  
+[ Internet Gateway ]  
+   |  
+[VPC: 10.0.0.0/16]  
+   |  
+[ Public Subnet: 10.0.1.0/24 ]  
+   |  
+[ EC2 Web Server (Amazon Linux) ]  
+- Public IP: 13.57.16.92  
+- Security Group:  
+  - SSH (22) from My IP  
+  - HTTP (80) from 0.0.0.0/0  
 
 ---
 
@@ -42,84 +39,78 @@ Copy code
 
 ## 📌 Deployment Steps
 
-### 1. Create VPC 
+### 1. Create VPC
 - CIDR: `10.0.0.0/16`
 - Name: `trainingVPC`
 
-### 2. Create Public Subnet ![Subnet](screenshots/Subnet.png)
+### 2. Create Public Subnet
 - CIDR: `10.0.1.0/24`
 - Name: `public-subnet-1`
-- Select any AZ
+- AZ: Any
 
-### 3. Create & Attach Internet Gateway ![Internet Gateway](screenshots/IGW.png)
+### 3. Create & Attach Internet Gateway
 - Name: `training-igw`
 - Attach to VPC
 
-### 4. Route Table ![Route Table](screenshots/RouteTable.png)
-- Add route:  
-  `0.0.0.0/0 → Internet Gateway`
+### 4. Route Table
+- Add route: `0.0.0.0/0 → Internet Gateway`
 - Associate with public-subnet-1
 
-### 5. Launch EC2 Instance ![EC2 Instance](screenshots/Ec2-Instance.png) 
-- Amazon Linux 2023 / Amazon Linux 2
+### 5. Launch EC2 Instance
+- AMI: Amazon Linux 2 or 2023
 - Instance type: `t2.micro`
 - Subnet: public-subnet-1
-- Auto-assign public IP: Enabled
-- Security Group: ![Security Group Rules](screenshots/SGRules.png)
-  - SSH (22) → My IP
-  - HTTP (80) → 0.0.0.0/0
+- Auto-assign Public IP: Enabled
+- Security Group:
+  - SSH (22) from My IP
+  - HTTP (80) from anywhere
 
-### 6. Install Apache Web Server 
+### 6. Install Apache Web Server
+
 ```bash
 sudo dnf update -y
 sudo dnf install -y httpd
 sudo systemctl enable httpd
 sudo systemctl start httpd
-7. Create test webpage
+7. Create Test Webpage
 bash
 Copy code
 echo "<h1>Hello from my first AWS web server</h1>" | sudo tee /var/www/html/index.html
-8. Test
-Browser →
-http://13.57.16.92
+8. Test in Browser
+Visit:
 
-You should see:
-
-Hello from my first AWS web server ![Web Browser Result](screenshots/BrowserResult.png)
-
-📌 Screenshots
-
-VPC list showing trainingVPC ![VPC](screenshots/vpc.png)
-
-Subnet list showing public-subnet-1
-
-Route Table showing 0.0.0.0/0 → igw
-
-Internet Gateway attached
-
-EC2 instance page with public IP
-
-Security Group inbound rules
-
-Browser screenshot of working webpage
-
-Example:
-
-bash
+cpp
 Copy code
-/screenshots
-    vpc.png
-    subnet.png
-    route-table.png
-    igw.png
-    ec2-instance.png
-    sg-rules.png
-    browser.png
-📌 Troubleshooting Notes
-Common issues and real-world debugging steps:
+http://13.57.16.92
+Expected result:
 
-1. Browser can't connect
-Security Group missing port 80
+Hello from my first AWS web server
+
+📸 Screenshots
+VPC
+
+
+Subnet
+
+
+Internet Gateway
+
+
+Route Table
+
+
+EC2 Instance
+
+
+Security Group Rules
+
+
+Browser Result
+
+
+📌 Troubleshooting Notes
+1. Browser cannot connect
+Missing port 80 in Security Group
 
 Apache service not running
 
@@ -130,21 +121,18 @@ Route table not associated with subnet
 2. SSH not working
 Port 22 not open to your IP
 
-Wrong key permissions
+Key file permissions wrong
 
-Wrong username (should be ec2-user)
+Wrong username (ec2-user)
 
 3. Webpage not updating
-Cached browser
+Browser cache
 
-File not created in /var/www/html/index.html
+Wrong file path (/var/www/html/index.html)
 
 ✅ Result
 This project demonstrates:
-
-✔ How to build foundational AWS network components
-✔ How to deploy a functioning EC2 web server
-✔ Understanding of routing, security, and public subnet configuration
-✔ Skills directly used in real Cloud Support / Cloud Ops roles
-
-END OF README
+✔ Building foundational AWS networking
+✔ Deploying an EC2-based web server
+✔ Understanding routing, gateways, and security groups
+✔ Real Cloud Support / Cloud Ops skills
