@@ -60,12 +60,12 @@ Copy code
   `0.0.0.0/0 → Internet Gateway`
 - Associate with public-subnet-1
 
-### 5. Launch EC2 Instance ![EC2 Instance](screenshots/Ec2-Instance.png) ![Security Group Rules](screenshots/SGRules.png)
+### 5. Launch EC2 Instance ![EC2 Instance](screenshots/Ec2-Instance.png) 
 - Amazon Linux 2023 / Amazon Linux 2
 - Instance type: `t2.micro`
 - Subnet: public-subnet-1
 - Auto-assign public IP: Enabled
-- Security Group:
+- Security Group: ![Security Group Rules](screenshots/SGRules.png)
   - SSH (22) → My IP
   - HTTP (80) → 0.0.0.0/0
 
