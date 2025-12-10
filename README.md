@@ -46,21 +46,21 @@ Copy code
 - CIDR: `10.0.0.0/16`
 - Name: `trainingVPC`
 
-### 2. Create Public Subnet
+### 2. Create Public Subnet ![Subnet](screenshots/Subnet.png)
 - CIDR: `10.0.1.0/24`
 - Name: `public-subnet-1`
 - Select any AZ
 
-### 3. Create & Attach Internet Gateway
+### 3. Create & Attach Internet Gateway ![Internet Gateway](screenshots/IGW.png)
 - Name: `training-igw`
 - Attach to VPC
 
-### 4. Route Table
+### 4. Route Table ![Route Table](screenshots/RouteTable.png)
 - Add route:  
   `0.0.0.0/0 → Internet Gateway`
 - Associate with public-subnet-1
 
-### 5. Launch EC2 Instance
+### 5. Launch EC2 Instance ![EC2 Instance](screenshots/Ec2-Instance.png) ![Security Group Rules](screenshots/SGRules.png)
 - Amazon Linux 2023 / Amazon Linux 2
 - Instance type: `t2.micro`
 - Subnet: public-subnet-1
@@ -69,7 +69,7 @@ Copy code
   - SSH (22) → My IP
   - HTTP (80) → 0.0.0.0/0
 
-### 6. Install Apache Web Server
+### 6. Install Apache Web Server ![Web Browser Result](screenshots/BrowserResult.png)
 ```bash
 sudo dnf update -y
 sudo dnf install -y httpd
@@ -149,27 +149,5 @@ This project demonstrates:
 ✔ How to deploy a functioning EC2 web server
 ✔ Understanding of routing, security, and public subnet configuration
 ✔ Skills directly used in real Cloud Support / Cloud Ops roles
-## 📸 Screenshots
-
-### VPC
-![VPC](screenshots/vpc.png)
-
-### Subnet
-![Subnet](screenshots/Subnet.png)
-
-### Route Table
-![Route Table](screenshots/RouteTable.png)
-
-### Internet Gateway
-![Internet Gateway](screenshots/IGW.png)
-
-### EC2 Instance
-![EC2 Instance](screenshots/Ec2-Instance.png)
-
-### Security Group Rules
-![Security Group Rules](screenshots/SGRules.png)
-
-### Web Browser Result
-![Web Browser Result](screenshots/BrowserResult.png)
 
 END OF README
