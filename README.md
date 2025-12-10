@@ -149,5 +149,27 @@ This project demonstrates:
 ✔ How to deploy a functioning EC2 web server
 ✔ Understanding of routing, security, and public subnet configuration
 ✔ Skills directly used in real Cloud Support / Cloud Ops roles
+## 📸 Screenshots
+
+### VPC
+![VPC](screenshots/vpc.png)
+
+### Subnet
+![Subnet](screenshots/Subnet.png)
+
+### Route Table
+![Route Table](screenshots/RouteTable.png)
+
+### Internet Gateway
+![Internet Gateway](screenshots/IGW.png)
+
+### EC2 Instance
+![EC2 Instance](screenshots/Ec2-Instance.png)
+
+### Security Group Rules
+![Security Group Rules](screenshots/SGRules.png)
+
+### Web Browser Result
+![Web Browser Result](screenshots/BrowserResult.png)
 
 END OF README
