@@ -66,73 +66,79 @@ Internet
   - HTTP (80) from anywhere
 
 ### 6. Install Apache Web Server
-
 ```bash
 sudo dnf update -y
 sudo dnf install -y httpd
 sudo systemctl enable httpd
 sudo systemctl start httpd
-7. Create Test Webpage
-bash
-Copy code
+```
+
+### 7. Create Test Webpage
+```bash
 echo "<h1>Hello from my first AWS web server</h1>" | sudo tee /var/www/html/index.html
-8. Test in Browser
+```
+
+### 8. Test in Browser
 Visit:
 
-cpp
-Copy code
+```
 http://13.57.16.92
+```
+
 Expected result:
 
-Hello from my first AWS web server
+**Hello from my first AWS web server**
 
-📸 Screenshots
-VPC
+---
 
+## 📸 Screenshots
 
-Subnet
+### VPC  
+![VPC](screenshots/vpc.png)
 
+### Subnet  
+![Subnet](screenshots/Subnet.png)
 
-Internet Gateway
+### Internet Gateway  
+![Internet Gateway](screenshots/IGW.png)
 
+### Route Table  
+![Route Table](screenshots/RouteTable.png)
 
-Route Table
+### EC2 Instance  
+![EC2 Instance](screenshots/Ec2-Instance.png)
 
+### Security Group Rules  
+![Security Group Rules](screenshots/SGRules.png)
 
-EC2 Instance
+### Browser Result  
+![Browser Result](screenshots/BrowserResult.png)
 
+---
 
-Security Group Rules
+## 📌 Troubleshooting Notes
 
+### 1. Browser cannot connect
+- Missing port 80 in Security Group  
+- Apache service not running  
+- Wrong public IP  
+- Route table not associated with subnet  
 
-Browser Result
+### 2. SSH not working
+- Port 22 not open to your IP  
+- Key file permissions wrong  
+- Wrong username (`ec2-user`)  
 
+### 3. Webpage not updating
+- Browser cache  
+- Wrong file path (`/var/www/html/index.html`)  
 
-📌 Troubleshooting Notes
-1. Browser cannot connect
-Missing port 80 in Security Group
+---
 
-Apache service not running
+## ✅ Result
 
-Wrong public IP
-
-Route table not associated with subnet
-
-2. SSH not working
-Port 22 not open to your IP
-
-Key file permissions wrong
-
-Wrong username (ec2-user)
-
-3. Webpage not updating
-Browser cache
-
-Wrong file path (/var/www/html/index.html)
-
-✅ Result
 This project demonstrates:
-✔ Building foundational AWS networking
-✔ Deploying an EC2-based web server
-✔ Understanding routing, gateways, and security groups
+✔ Building foundational AWS networking  
+✔ Deploying an EC2-based web server  
+✔ Understanding routing, gateways, and security groups  
 ✔ Real Cloud Support / Cloud Ops skills
