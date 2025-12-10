@@ -42,7 +42,7 @@ Copy code
 
 ## 📌 Deployment Steps
 
-### 1. Create VPC ![VPC](screenshots/vpc.png)
+### 1. Create VPC 
 - CIDR: `10.0.0.0/16`
 - Name: `trainingVPC`
 
@@ -69,7 +69,7 @@ Copy code
   - SSH (22) → My IP
   - HTTP (80) → 0.0.0.0/0
 
-### 6. Install Apache Web Server ![Web Browser Result](screenshots/BrowserResult.png)
+### 6. Install Apache Web Server 
 ```bash
 sudo dnf update -y
 sudo dnf install -y httpd
@@ -85,14 +85,11 @@ http://13.57.16.92
 
 You should see:
 
-Hello from my first AWS web server
+Hello from my first AWS web server ![Web Browser Result](screenshots/BrowserResult.png)
 
 📌 Screenshots
-(Upload the following screenshots into a folder named /screenshots and reference them here.)
 
-Recommended screenshots:
-
-VPC list showing trainingVPC
+VPC list showing trainingVPC ![VPC](screenshots/vpc.png)
 
 Subnet list showing public-subnet-1
 
